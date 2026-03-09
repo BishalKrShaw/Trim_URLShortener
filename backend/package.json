@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend for Trim - URL Shortener",
+  "keywords": [
+    "Trim",
+    "URL_Shortener"
+  ],
+  "homepage": "https://github.com/BishalKrShaw/Trim_URLShortener#readme",
+  "bugs": {
+    "url": "https://github.com/BishalKrShaw/Trim_URLShortener/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BishalKrShaw/Trim_URLShortener.git"
+  },
+  "license": "ISC",
+  "author": "Bishal Kumar Shaw",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
