@@ -1,11 +1,26 @@
 import express from "express";
+import dotenv from "dotenv";
+import connectDB from "./db/connectDB.js";
+import generateShortURLRoute from "./routes/url.routes.js";
+import getShortUrlRoute from "./routes/getShortURL.routes.js";
 
 let app = express();
+app.use(express.json());
 
-app.get("/", (_req, _res) => {
-  return _res.send("Home route");
+dotenv.config({
+  path: './.env'
 });
 
-app.listen(8000, () => {
-  console.log("Server is running at port 8000");
-});
+connectDB()
+.then(() => {
+  app.listen(process.env.PORT, () => {
+    console.log(`Server is listening at port ${process.env.PORT}`);
+  }
+  )
+})
+.catch(() => {
+  console.error("DB connection failed!!")
+})
+
+app.use("/api/v1/generateshorlurl", generateShortURLRoute);
+app.use("/api/v1/getshorturl", getShortUrlRoute);
