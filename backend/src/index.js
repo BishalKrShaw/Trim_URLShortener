@@ -22,5 +22,12 @@ connectDB()
   console.error("DB connection failed!!")
 })
 
+const allowedOrigins = process.env.ALLOWED_ORIGINS;
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true
+}))
+
 app.use("/api/v1/generateshorlurl", generateShortURLRoute);
 app.use("/api/v1/getshorturl", getShortUrlRoute);
